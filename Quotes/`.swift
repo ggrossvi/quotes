@@ -18,7 +18,7 @@ struct ContentView: View {
     
     
     
-    let emotionQuotes = [
+    @State private var emotionQuotes = [
             "sad":
                 [
                     "Don\'t focus on the pain, focus on the progress.",
@@ -30,7 +30,11 @@ struct ContentView: View {
                     "There is nothing impossible to they who will try.","When you have a dream, you've got to grab it and never let go."]
     ]
     
-    let count = emotionQuotes["\($selectedEmotion)"]
+    var selectQuote: String {
+        let personalQuote = emotionQuotes["\($selectedEmotion)"]?[0]
+        return personalQuote
+    }
+    
     
 //    var totalPerPerson: Double {
 //        let peopleCount = Double(numberOfPeople + 2)
